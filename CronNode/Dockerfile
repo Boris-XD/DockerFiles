@@ -17,5 +17,11 @@ RUN npm install
 # Correr todos los test
 RUN npm run test
 
+# Eliminar archivos innecesarios en production
+RUN rm -rf tests && rm -rf node_modules
+
+# instalar node modules solo con production
+RUN npm install --prod
+
 #Comando run de la imagen
 CMD ["node", "app.js"]
